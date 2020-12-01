@@ -20,7 +20,6 @@ public class Deck {
             for (int j = 2; j < 15; j++) {
                 deck.add(new Card(Suits.cardsSuits[i], j));
             }
-
         }
     }
 }
