@@ -14,7 +14,5 @@ public class DeckConfig {
         List<Card> shuffledDeck = deck.getDeck();
         Collections.shuffle(shuffledDeck);
         return shuffledDeck;
-
     }
-
 }

@@ -4,7 +4,7 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component(value = "player")
 public class HumanPlayer extends Player {
 
     @Autowired
