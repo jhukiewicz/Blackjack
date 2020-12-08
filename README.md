@@ -1,2 +1,2 @@
 # Blackjack
-Blackjack game with Thymleaf
+Blackjack with Thymleaf
