@@ -18,4 +18,5 @@ public class Card {
         this.cardSuit = cardSuit;
         this.pips = pips;
     }
+
 }
