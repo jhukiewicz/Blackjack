@@ -12,16 +12,19 @@ public class Bets {
     @Autowired
     Player player;
 
-    public int placeABet(Player player, int bet) {
+
+    public int placeABet(int bet) {
         if (player.getCash() >= bet) {
             player.setCash(player.getCash() - bet);
+            log.info("in place a bet, player cash ={}",player.getCash());
             return bet;
         }
         return -1;
     }
 
-    public int returnBet(Player player,int winType, int bet) {
-        player.setCash(calculateBet(winType, bet));
+    public int returnBet(int winType, int bet) {
+        log.info("returning bet = {}",calculateBet(winType, bet));
+        player.setCash(player.getCash()+calculateBet(winType, bet));
         return player.getCash();
     }
 

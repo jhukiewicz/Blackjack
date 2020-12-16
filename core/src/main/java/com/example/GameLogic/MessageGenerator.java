@@ -21,12 +21,12 @@ public class MessageGenerator {
         this.messageSource = messageSource;
     }
 
-    public String getResultMessage(){
-        game.check();
-        if (game.isGameWon()){
-            return getMessage(PLAYER_WIN,game.getBet());
-        }
-    }
+//    public String getResultMessage(){
+//        game.check();
+//        if (game.isGameWon()){
+//            return getMessage(PLAYER_WIN,game.getBet());
+//        }
+//    }
 
     private String getMessage(String code, Object... args) {
         return messageSource.getMessage(code, args, LocaleContextHolder.getLocale());

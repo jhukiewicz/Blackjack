@@ -38,22 +38,22 @@ public class Game {
         currentBet=0;
     }
 
-    public void placeABet(Player player, int bet){
-        currentBet=bets.placeABet(player,bet);
-    }
-
-    public int payOut(Player player){
-        int winType;
-        if (push){
-            winType=2;
-        }else if(isGameWon && playerBlackjack){
-            winType=1;
-        }else {
-            winType=0;
-        }
-
-        return bets.returnBet(player,winType,currentBet);
-    }
+//    public void placeABet(Player player, int bet){
+//        currentBet=bets.placeABet(player,bet);
+//    }
+//
+//    public int payOut(Player player){
+//        int winType;
+//        if (push){
+//            winType=2;
+//        }else if(isGameWon && playerBlackjack){
+//            winType=1;
+//        }else {
+//            winType=0;
+//        }
+//
+//        return bets.returnBet(player,winType,currentBet);
+//    }
 
     private boolean isBlackjack(Player player){
         boolean isTen = false;
@@ -80,7 +80,7 @@ public class Game {
     }
 
     public void check(){
-        
+
         if ((isBlackjack(humanPlayer) && !isBlackjack(dealer))
             || (playerScore>dealerScore)){
             isGameWon=true;

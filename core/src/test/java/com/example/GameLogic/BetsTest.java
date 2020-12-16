@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {Bets.class, HumanPlayer.class})
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class BetsTest {
 
     @Autowired
@@ -25,22 +27,25 @@ class BetsTest {
 
     @Test
     void placeABet() {
-        assertEquals(300, bets.placeABet(player,bet));
+        assertEquals(300, bets.placeABet(bet));
         assertEquals(2200,player.getCash());
     }
 
     @Test
-    void calculateBet_normalWin() {
-        assertEquals(600,bets.calculateBet(WinTypes.NORMAL,bet));
+    void returnBet_normalWin() {
+        bets.placeABet(bet);
+        assertEquals(2800,bets.returnBet(WinTypes.NORMAL,bet));
     }
 
     @Test
     void calculateBet_blackjack() {
-        assertEquals(900,bets.calculateBet(WinTypes.BLACKJACK,bet));
+        bets.placeABet(bet);
+        assertEquals(3100,bets.returnBet(WinTypes.BLACKJACK,bet));
     }
 
     @Test
     void calculateBet_push() {
-        assertEquals(300,bets.calculateBet(WinTypes.PUSH,bet));
+        bets.placeABet(bet);
+        assertEquals(2500,bets.returnBet(WinTypes.PUSH,bet));
     }
 }
