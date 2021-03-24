@@ -1,2 +1,2 @@
 # Blackjack
-Blackjack with Thymleaf
+*unfinished* Blackjack with Thymleaf
